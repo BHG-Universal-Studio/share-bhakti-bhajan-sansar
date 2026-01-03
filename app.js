@@ -14,12 +14,9 @@ function getVideoIdFromPath() {
 const videoId = getVideoIdFromPath();
 
 if (!videoId) {
-  window.location.href =
-    "https://sites.google.com/view/bhg-universal-studio";
-  return;
-}
-
- else {
+  loader.style.display = "none";
+  alert("वीडियो नहीं मिला");
+} else {
   /* Thumbnail (UI only) */
   const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   thumbnail.style.backgroundImage = `url(${thumbUrl})`;
