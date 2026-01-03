@@ -136,6 +136,25 @@ iframe {
   object-fit: contain;
 }
 
+/* 🔊 Mute / Unmute Button */
+.mute-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 50%;
+  transform: translateY(50%);
+  z-index: 6; /* ABOVE BLOCKERS */
+
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 20px;
+}
+
+
 
 .cta {
   margin-top: 24px;
