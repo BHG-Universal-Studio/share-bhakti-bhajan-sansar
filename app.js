@@ -67,5 +67,6 @@ function openInYouTube() {
 }
 
 function openInApp() {
-  window.location.href = `bhaktibhajan://video/${videoId}`;
+  window.location.href = `https://bhakti-bhajan-sansar.pages.dev/${videoId}`;
 }
+
