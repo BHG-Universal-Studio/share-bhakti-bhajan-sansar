@@ -67,6 +67,15 @@ function openInYouTube() {
 }
 
 function openInApp() {
-  window.location.href = `https://bhakti-bhajan-sansar.pages.dev/${videoId}`;
-}
+  if (!videoId) return;
+  
+  const appUrl = `bhaktibhajan://video/${videoId}`;
+  
+  // Attempt to open the app
+  window.location.href = appUrl;
 
+  setTimeout(function() {
+      window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
+  }, 2000);
+  
+}
