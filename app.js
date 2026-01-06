@@ -3,6 +3,8 @@ const thumbnail = document.getElementById("thumbnail");
 const loader = document.getElementById("loader");
 const muteBtn = document.getElementById("muteBtn");
 
+const downloadBtn = document.getElementById("downloadBtn");
+
 let isMuted = true;
 
 /* Get VIDEO_ID from URL */
@@ -13,10 +15,14 @@ function getVideoIdFromPath() {
 
 const videoId = getVideoIdFromPath();
 
+downloadBtn.addEventListener("click", openInPlayStore);
+
+
 if (!videoId) {
   loader.style.display = "none";
   // Redirect to the specified website if no video ID is found
-  window.location.replace("https://sites.google.com/view/bhg-universal-studio");
+   window.location.replace("https://sites.google.com/view/bhg-universal-studio");
+
 } else {
   /* Thumbnail (UI only) */
   const thumbUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
@@ -68,8 +74,20 @@ function openInYouTube() {
   window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
 }
 
-setTimeout(function() {
+function openInPlayStore() {
+ window.location.href = "https://play.google.com/store/apps/details?id=com.BHG.bhakti";
+}
+
+function openInApp() {
+  if (!videoId) return;
+  
+  const appUrl = `bhaktibhajan://video/${videoId}`;
+  
+  window.location.href = appUrl;
+
+  setTimeout(function() {
       window.location.href = "https://play.google.com/store/apps/details?id=com.BHG.bhakti";
   }, 2000);
+  
 
-
+}

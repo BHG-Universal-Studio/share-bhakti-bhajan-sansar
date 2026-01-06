@@ -131,8 +131,35 @@ iframe {
 }
 
 .mute-btn img {
-  width: 30px;
-  height: 30px;
+    width: 35px;
+  height: 35px;
+  object-fit: contain;
+  pointer-events: none; /* button handles click */
+}
+
+
+
+
+.download-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 40%;
+  transform: translateY(50%);
+  z-index: 6; /* ABOVE BLOCKERS */
+
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0, 0, 0, 0);
+  color: #fff;
+  font-size: 20px;
+}
+
+.download-btn img {
+  width: 35px;
+  height: 35px;
   object-fit: contain;
   pointer-events: none; /* button handles click */
 }
