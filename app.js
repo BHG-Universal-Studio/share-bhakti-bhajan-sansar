@@ -23,17 +23,19 @@ if (!videoId) {
   thumbnail.style.backgroundImage = `url(${thumbUrl})`;
 
   /* 🔒 AUTOPLAY + MUTED (REQUIRED) */
-  player.src =
-    `https://www.youtube.com/embed/${videoId}` +
-    `?autoplay=1` +
-    `&mute=1` +
-    `&playsinline=1` +
-    `&controls=0` +
-    `&rel=0` +
-    `&modestbranding=1` +
-    `&iv_load_policy=3` +
-    `&fs=0` +
-    `&disablekb=1`;
+player.src =
+  `https://www.youtube.com/embed/${videoId}` +
+  `?autoplay=1` +
+  `&mute=1` +
+  `&playsinline=1` +
+  `&controls=0` +
+  `&rel=0` +
+  `&modestbranding=1` +
+  `&iv_load_policy=3` +
+  `&fs=0` +
+  `&disablekb=1` +
+  `&cc_load_policy=0`;
+
 
   player.onload = () => {
     loader.style.display = "none";
@@ -68,14 +70,36 @@ function openInYouTube() {
 
 function openInApp() {
   if (!videoId) return;
-  
+
   const appUrl = `bhaktibhajan://video/${videoId}`;
-  
-  // Attempt to open the app
+  const playStoreUrl =
+    "https://play.google.com/store/apps/details?id=com.BHG.bhakti";
+
+  let didAppOpen = false;
+
+  // Detect if app opened (page hidden)
+  const onVisibilityChange = () => {
+    if (document.hidden) {
+      didAppOpen = true;
+      cleanup();
+    }
+  };
+
+  const cleanup = () => {
+    document.removeEventListener("visibilitychange", onVisibilityChange);
+  };
+
+  document.addEventListener("visibilitychange", onVisibilityChange);
+
+  // Try opening app
   window.location.href = appUrl;
 
-  setTimeout(function() {
-      window.location.href = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME";
-  }, 2000);
-  
+  // Fallback to Play Store ONLY if app didn't open
+  setTimeout(() => {
+    if (!didAppOpen) {
+      window.location.href = playStoreUrl;
+    }
+  }, 1800);
 }
+
+
