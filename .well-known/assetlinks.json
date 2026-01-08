@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.BHG.bhakti",
+      "sha256_cert_fingerprints": [
+        "64:93:88:92:C0:2E:9B:4E:DA:98:FC:D6:56:C4:DB:30:8E:55:DA:04:66:02:95:6D:75:FB:98:60:66:A1:EB:40",
+        "17:C2:AB:8D:6F:69:9F:19:F1:B3:0C:BE:D0:41:39:B3:7B:C3:8C:27:A0:03:E8:6E:9E:89:78:AC:7B:3C:EA:0C"
+      ]
+    }
+  }
+]
